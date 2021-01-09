@@ -1,6 +1,6 @@
 const connect= require('./db');
 
-exports.getAdd= (req,res)=>{
+exports.getAdd= (req,res)=>{  //localhost:3000/userAdd
     var name=req.body.name;
     var email=req.body.email;
     var phone_number=req.body.phone_number;
@@ -18,7 +18,7 @@ exports.getAdd= (req,res)=>{
     );
 };
 
-exports.getAll = (req, res) => { 
+exports.getAll = (req, res) => {  //localhost:3000/allUser
     connect.query("SELECT * from info",
       function (err,result) {
         if(!err){
@@ -30,7 +30,7 @@ exports.getAll = (req, res) => {
     );
   };
 
-exports.getUpdate = (req,res) => { 
+exports.getUpdate = (req,res) => {  //localhost:3000/updateUser 
     // console.log(req.body)
     var name=req.body.name;
     var phone_number=req.body.phone_number;
@@ -47,7 +47,7 @@ exports.getUpdate = (req,res) => {
     );
   };
   
-exports.getDelete = (req,res) => { 
+exports.getDelete = (req,res) => {  //localhost:3000/deleteUser
     var name= req.body.name;
     connect.query(
       "DELETE FROM info WHERE name = ('"+name+"')",

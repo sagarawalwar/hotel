@@ -1,12 +1,10 @@
 const connect= require('./db');
 
-exports.getAdd= (req,res)=>{  // localhost:3000/bookRoom
+exports.getAdd= (req,res)=>{  // localhost:3000/roomBook
     var name=req.body.name;
     var room_number=req.body.room_number;
     var rent=req.body.rent;
-    // console.log(name);
-    // console.log(city);
-
+    
     connect.query("Insert into details(name,room_number,rent) values ('" +name+ "' ,'" +room_number+ "','"+rent+"')",
     function(err,result){
         if(!err){
@@ -32,8 +30,7 @@ exports.getDelete = (req,res) => {  // localhost:3000/detete_details
                   }
               }
             );
-            // status:"success",
-            // res.send(result)
+        
         }else{
             return err;
         }

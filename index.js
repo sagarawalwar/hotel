@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connect = require('./db');
-const rr= require('./info_controller');
+const user= require('./info_controller');
 const detail= require('./detail_controller');
 
 connect.connect(function(err) {
@@ -26,12 +26,12 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to express"});
 });
-
-app.post('/add',rr.getAdd);
-app.get('/all',rr.getAll);
-app.post('/update',rr.getUpdate);
-app.post('/delete',rr.getDelete);
-app.post('/room',detail.getAdd);
+//routes for user and booking
+app.post('/userAdd',user.getAdd);  
+app.get('/allUser',user.getAll);
+app.post('/updateUser',user.getUpdate);
+app.post('/deleteUser',user.getDelete);
+app.post('/roomBook',detail.getAdd);
 app.post('/detete_details',detail.getDelete);
 
 
